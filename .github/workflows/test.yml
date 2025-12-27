@@ -1,0 +1,38 @@
+name: UI Test Automation -Smoke
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+jobs:
+    run-ui-tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                dotnet-version: '8.0.x'
+            
+            - name: Install chrome browser
+              uses: browser-actions/setup-chrome@v1 
+              with:
+                chrome-version: 'latest'
+            - name: Restore dependencies
+              run: dotnet restore
+
+            - name: Run smoke test
+              run: dotnet test --logger trx;LogFileName=test_results.trx" --configuration Release
+
+            - name: Upload Extent report
+              uses: actions/upload-artifact@v3
+              with:
+                name: Extent-Report 
+                path: |
+                  Reports/**
+                  Screenshots/** 
+
+
