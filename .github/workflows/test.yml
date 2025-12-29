@@ -29,7 +29,7 @@ jobs:
         run: dotnet restore
 
       - name: Run smoke tests
-        run: dotnet test --filter "TestCategory=Smoke" --logger "trx;LogFileName=test_results.trx" --results-directory "TestResults" --configuration Release
+        run: dotnet test --filter "TestCategory=Signup" --logger "trx;LogFileName=test_results.trx" --results-directory "TestResults" --configuration Release
 
       - name: Publish Test Results
         uses: dorny/test-reporter@v1  
