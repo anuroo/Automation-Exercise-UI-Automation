@@ -40,10 +40,17 @@ jobs:
             **/TestResults/*.trx
           reporter: dotnet-trx
 
-      - name: Upload Test Artifacts
+      - name: Upload UI Test Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Test-Artifacts
+          name: UI-Test-Artifacts
           path: |
             Reports/**
             Screenshots/**
+
+      - name: Publish Extent Report link
+        if: always()
+        run: | 
+          echo "📊 **Extent Report** available here:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "➡️ Download and open the HTML report for full UI test details." >> $GITHUB_STEP_SUMMARY
