@@ -51,7 +51,7 @@ jobs:
       - name: Publish Extent Report link
         if: always()
         run: | 
-          ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts
+          ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts"
           echo "📊 **Extent Report** available here:" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "➡️ Download and open the HTML report for full UI test details." >> $GITHUB_STEP_SUMMARY
