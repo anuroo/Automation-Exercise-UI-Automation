@@ -1,5 +1,9 @@
 name: UI Test Automation - Smoke
 
+permissions:
+  contents: read
+  checks: write
+
 on:
   push:
     branches: [ main ]
