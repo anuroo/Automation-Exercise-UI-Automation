@@ -8,7 +8,7 @@ namespace AutomationFramework.Tests
     public class LoginTest : BaseTest
     {
     
-        [Test]
+        [Test,Category("Signup")]
         public void Signup_WithValidCredentials()
         {
             var driver=DriverFactory.Driver;
