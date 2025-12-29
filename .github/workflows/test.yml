@@ -27,6 +27,14 @@ jobs:
       - name: Run smoke tests
         run: dotnet test --filter "TestCategory=Smoke" --logger "trx;LogFileName=test_results.trx" --configuration Release
 
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1  
+        if: always()
+        with:
+          name: Nunit Smoke Test Results  
+          path: '**/test_results.trx'
+          reporter: dotnet-trx
+
       - name: Upload Test Artifacts
         uses: actions/upload-artifact@v4
         with:
