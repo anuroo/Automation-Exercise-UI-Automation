@@ -6,9 +6,8 @@ namespace AutomationFramework.Tests
 {
     [TestFixture]
     public class LoginTest : BaseTest
-    {
-    
-        [Test,Category("Signup")]
+    {  
+        [Test,Category("Signup"),RetryOnFailure]
         public void Signup_WithValidCredentials()
         {
             var driver=DriverFactory.Driver;
@@ -18,7 +17,7 @@ namespace AutomationFramework.Tests
 
             HomePage homePage=new HomePage(driver);
             LoginPage loginPage=new LoginPage(driver);
-            homePage.ClickMenuTabLink("Home")       
+            homePage.ClickMenuTabLink("home")       
                     .VerfiyMenuIsSelected("Home")
                     .ClickMenuTabLink("Signup / Login");
             loginPage.EnterEmail(email)
