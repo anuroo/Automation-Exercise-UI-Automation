@@ -33,7 +33,7 @@ public class RetryOnFailureAttribute: NUnitAttribute,IWrapSetUpTearDown
                 context.CurrentResult=innerCommand.Execute(context);
                 if(context.CurrentResult.ResultState==ResultState.Success)
                 {
-                    if(attempt>1)
+                    if(attempt>=1)
                     {
                         Console.WriteLine($"Test Passed on:{attempt-1} retry");
                         return context.CurrentResult;

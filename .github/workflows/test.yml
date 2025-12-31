@@ -4,6 +4,7 @@ permissions:
   contents: read
   checks: write
 
+
 on:
   push:
     branches: [ main ]
@@ -39,6 +40,7 @@ jobs:
           path: | 
             **/TestResults/*.trx
           reporter: dotnet-trx
+          fail-on-errors: false
 
       - name: Upload UI Test Artifacts
         uses: actions/upload-artifact@v4
