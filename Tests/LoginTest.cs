@@ -17,7 +17,7 @@ namespace AutomationFramework.Tests
 
             HomePage homePage=new HomePage(driver);
             LoginPage loginPage=new LoginPage(driver);
-            homePage.ClickMenuTabLink("home")       
+            homePage.ClickMenuTabLink("Home")       
                     .VerfiyMenuIsSelected("Home")
                     .ClickMenuTabLink("Signup / Login");
             loginPage.EnterEmail(email)
